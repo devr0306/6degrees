@@ -8,7 +8,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const SignInScreen = ({ navigation }) => {
-  const [user, setUser] = useState({ email: "", password: "" });
+  const [user, setUser] = useState({});
 
   const loginPress = () => {
     const auth = getAuth(app); // Initialize Auth
