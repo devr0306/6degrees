@@ -4,11 +4,18 @@ import styles from "../styles/welcome-styles";
 const WelcomeScreen = ({ navigation }) => {
   return (
     <View style={styles.welcomeContainer}>
-      <TouchableOpacity onPress={() => navigation.navigate("Sign In Screen")}>
-        <Text>Sign In</Text>
+      <Text style={styles.title}>6degrees</Text>
+      <TouchableOpacity
+        style={styles.welcomeButton}
+        onPress={() => navigation.navigate("Sign In Screen")}
+      >
+        <Text style={styles.welcomeButtonText}>Sign In</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("Sign Up Screen")}>
-        <Text>Sign Up</Text>
+      <TouchableOpacity
+        style={styles.welcomeButton}
+        onPress={() => navigation.navigate("Sign Up Screen")}
+      >
+        <Text style={styles.welcomeButtonText}>Sign Up</Text>
       </TouchableOpacity>
     </View>
   );
