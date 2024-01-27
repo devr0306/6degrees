@@ -2,46 +2,48 @@ import { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import styles from "../styles/signin-styles";
 
-import { firebase } from "../firebase/config";
+// Import Firebase modules
+import { app } from "../firebase/config";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const SignInScreen = ({ navigation }) => {
+  const [user, setUser] = useState({ email: "", password: "" });
+
   const loginPress = () => {
-    // firebase
-    //   .auth()
-    //   .signInWithEmailAndPassword(user.email, user.password)
-    //   .then((response) => {
-    //     const uid = response.user.uid;
-    //     const usersRef = firebase.firestore().collection("users");
-    //     usersRef
-    //       .doc(uid)
-    //       .get()
-    //       .then((firestoreDocument) => {
-    //         if (!firestoreDocument.exists) {
-    //           alert("User does not exist anymore.");
-    //           return;
-    //         }
-    //         const user = firestoreDocument.data();
-    //         navigation.navigate("Home Screen", { user });
-    //       })
-    //       .catch((error) => {
-    //         alert(error);
-    //       });
-    //   })
-    //   .catch((error) => {
-    //     alert(error);
-    //   });
-    navigation.navigate("Home Screen");
+    const auth = getAuth(app); // Initialize Auth
+    const firestore = getFirestore(app); // Initialize Firestore
+
+    signInWithEmailAndPassword(auth, user.email, user.password)
+      .then((response) => {
+        console.log(response);
+        const uid = response.user.uid;
+        const usersRef = doc(firestore, "users", uid); // Reference to user document
+        getDoc(usersRef)
+          .then((firestoreDocument) => {
+            if (!firestoreDocument.exists()) {
+              alert("User does not exist anymore.");
+              return;
+            }
+            const userData = firestoreDocument.data();
+            navigation.navigate("Home Screen", { user: userData });
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
+        })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
-  const user = useState({});
+
   return (
     <View style={styles.container}>
       <Text>Sign In</Text>
       <TextInput
         placeholder="Email"
         value={user.email}
-        onChangeText={(text) => {
-          user.email = text;
-        }}
+        onChangeText={(text) => setUser({ ...user, email: text })}
         autoCapitalize="none"
       />
       <TextInput
@@ -49,9 +51,7 @@ const SignInScreen = ({ navigation }) => {
         autoCapitalize="none"
         secureTextEntry={true}
         value={user.password}
-        onChangeText={(text) => {
-          user.password = text;
-        }}
+        onChangeText={(text) => setUser({ ...user, password: text })}
       />
 
       <TouchableOpacity onPress={loginPress}>
