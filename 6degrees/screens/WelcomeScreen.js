@@ -1,5 +1,6 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import styles from "../styles/welcome-styles";
+import commonStyles from "../styles/styles";
 
 const WelcomeScreen = ({ navigation }) => {
   return (

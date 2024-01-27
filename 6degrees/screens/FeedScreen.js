@@ -4,7 +4,6 @@ import EventListItem from "../components/EventListItem";
 const FeedScreen = ({ navigation }) => {
   return (
     <View>
-      <Text>Feed Screen</Text>
       <ScrollView style={{ width: "100%", height: "100%" }}>
         <EventListItem
           title="Poker Night"
