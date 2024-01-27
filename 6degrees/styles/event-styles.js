@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
   detailsContainer: {
     marginTop: 50,
     padding: 20,
+    paddingHorizontal: 50,
   },
   date: {
     fontWeight: "bold",
@@ -76,10 +77,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   signUpButton: {
-    width: "80%",
+    width: "90%",
     borderRadius: 30,
     backgroundColor: colors.primary,
-    marginHorizontal: "10%",
+    marginHorizontal: "5%",
     paddingVertical: 10,
   },
   signUpButtonText: {

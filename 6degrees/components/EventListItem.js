@@ -3,14 +3,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import styles from "../styles/feed-styles";
 import colors from "../colors";
 
-const EventListItem = ({
-  navigation,
-  title,
-  date,
-  description,
-  location,
-  image,
-}) => {
+const EventListItem = ({ navigation, title, date, description, location }) => {
   return (
     <TouchableOpacity
       onPress={() =>

@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 15,
     marginHorizontal: 20,
+    marginVertical: 5,
     borderRadius: 30,
     shadowOffset: {
       height: 5,
