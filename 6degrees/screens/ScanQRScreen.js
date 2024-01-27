@@ -1,6 +1,10 @@
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button, TouchableOpacity } from 'react-native';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+import addConnection from "../firebase/firebaseFunctions";
+import { app } from "../firebase/config";
 
 
 const ScanQRScreen = ({ navigation }) => {
@@ -17,6 +21,14 @@ const ScanQRScreen = ({ navigation }) => {
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    const auth = getAuth(app);
+    var user = auth.currentUser;
+    var uid = user.uid;
+  
+    console.log("current user", user)
+    console.log("current uid", uid)
+
+    addConnection(uid, data);
   };
 
   const renderCamera = () => {
