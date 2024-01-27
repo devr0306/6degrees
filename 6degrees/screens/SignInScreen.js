@@ -31,10 +31,11 @@ const SignInScreen = ({ navigation }) => {
           .catch((error) => {
             alert(error.message);
           });
-        })
+      })
       .catch((error) => {
         alert(error.message);
       });
+    // navigation.navigate("Home Screen");
   };
 
   return (

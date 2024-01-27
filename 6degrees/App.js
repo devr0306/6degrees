@@ -8,6 +8,7 @@ import SignUpScreen from "./screens/SignUpScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ShowQRScreen from "./screens/ShowQRScreen";
 import ScanQRScreen from "./screens/ScanQRScreen";
+import EventScreen from "./screens/EventScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -48,6 +49,11 @@ const App = () => {
         <Stack.Screen
           name="Scan QR Screen"
           component={ScanQRScreen}
+          options={{ gestureEnabled: true }}
+        />
+        <Stack.Screen
+          name="Event Screen"
+          component={EventScreen}
           options={{ gestureEnabled: true }}
         />
       </Stack.Navigator>

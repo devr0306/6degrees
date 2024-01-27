@@ -4,17 +4,25 @@ import styles from "../styles/feed-styles";
 import colors from "../colors";
 
 const EventListItem = ({
+  navigation,
   title,
   date,
   description,
   location,
   image,
-  onPress,
 }) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("Event Screen", {
+          title,
+          date,
+          description,
+          location,
+        })
+      }
+    >
       <View style={styles.container}>
-        <Image style={styles.image} source={image} />
         <View style={styles.detailsContainer}>
           <Text style={styles.date} numberOfLines={1}>
             {date}

@@ -15,6 +15,11 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.5,
   },
+  title: {
+    color: colors.primary,
+    fontWeight: "bold",
+    fontSize: 22,
+  },
   detailsContainer: {
     flex: 1,
     marginLeft: 10,
@@ -51,11 +56,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textTransform: "uppercase",
     fontSize: 16,
-  },
-  title: {
-    color: colors.lightBlue,
-    fontWeight: "bold",
-    fontSize: 22,
   },
 });
 
