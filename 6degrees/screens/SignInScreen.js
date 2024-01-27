@@ -38,25 +38,33 @@ const SignInScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text>Sign In</Text>
-      <TextInput
-        placeholder="Email"
-        value={user.email}
-        onChangeText={(text) => setUser({ ...user, email: text })}
-        autoCapitalize="none"
-      />
-      <TextInput
-        placeholder="Password"
-        autoCapitalize="none"
-        secureTextEntry={true}
-        value={user.password}
-        onChangeText={(text) => setUser({ ...user, password: text })}
-      />
+    <View style={{ flex: 1, height: "100%", alignItems: "center" }}>
+      <Text style={styles.title}>Sign In</Text>
+      <View style={styles.container}>
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          value={user.email}
+          onChangeText={(text) => {
+            user.email = text;
+          }}
+          autoCapitalize="none"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          autoCapitalize="none"
+          secureTextEntry={true}
+          value={user.password}
+          onChangeText={(text) => {
+            user.password = text;
+          }}
+        />
 
-      <TouchableOpacity onPress={loginPress}>
-        <Text>Sign In</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.submitButton} onPress={loginPress}>
+          <Text style={styles.submitButtonText}>Sign In</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
