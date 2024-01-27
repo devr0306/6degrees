@@ -22,4 +22,28 @@ export const addConnection = async (userID, connectionID) => {
   }
 };
 
+export const getEvents = async () => {
+    const firestore = getFirestore(app);
+
+    try {
+      // Reference to the collection
+      const collectionRef = collection(firestore, "events");
+  
+      // Retrieve all documents in the collection
+      const querySnapshot = await getDocs(collectionRef);
+  
+      // Convert the query snapshot to an array of document data
+      const documents = querySnapshot.docs.map((doc) => doc.data());
+      console.log(documents);
+  
+      return documents;
+    } catch (error) {
+      console.error("Error getting documents from collection:", error.message);
+      return [];
+    }
+};
+
+
+
+
 

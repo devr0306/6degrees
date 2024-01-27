@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import styles from "../styles/signin-styles";
-import { addConnection } from "../firebase/firebaseFunctions";
+
+// Testing firebase functions
+import { getEvents } from "../firebase/firebaseFunctions";
 
 // Import Firebase modules
 import { app } from "../firebase/config";
@@ -66,7 +68,7 @@ const SignInScreen = ({ navigation }) => {
           <Text style={styles.submitButtonText}>Sign In</Text>
         </TouchableOpacity>
 
-        {/* <TouchableOpacity onPress={() => addConnection("5JwjnSClP1xOgLQjJMmE", "AnJxJzwcP1RIQLHySlBEUPRkGww2")}>
+        {/* <TouchableOpacity onPress={() => getEvents()}>
           <Text>Test BUtton</Text>
         </TouchableOpacity> */}
 
