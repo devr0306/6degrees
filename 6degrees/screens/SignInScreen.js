@@ -17,28 +17,28 @@ const SignInScreen = ({ navigation }) => {
     const auth = getAuth(app); // Initialize Auth
     const firestore = getFirestore(app); // Initialize Firestore
 
-    // signInWithEmailAndPassword(auth, user.email, user.password)
-    //   .then((response) => {
-    //     console.log(response);
-    //     const uid = response.user.uid;
-    //     const usersRef = doc(firestore, "users", uid); // Reference to user document
-    //     getDoc(usersRef)
-    //       .then((firestoreDocument) => {
-    //         if (!firestoreDocument.exists()) {
-    //           alert("User does not exist anymore.");
-    //           return;
-    //         }
-    //         const userData = firestoreDocument.data();
-    //         navigation.navigate("Home Screen", { user: userData });
-    //       })
-    //       .catch((error) => {
-    //         alert(error.message);
-    //       });
-    //   })
-    //   .catch((error) => {
-    //     alert(error.message);
-    //   });
-    navigation.navigate("Home Screen");
+    signInWithEmailAndPassword(auth, user.email, user.password)
+      .then((response) => {
+        console.log(response);
+        const uid = response.user.uid;
+        const usersRef = doc(firestore, "users", uid); // Reference to user document
+        getDoc(usersRef)
+          .then((firestoreDocument) => {
+            if (!firestoreDocument.exists()) {
+              alert("User does not exist anymore.");
+              return;
+            }
+            const userData = firestoreDocument.data();
+            navigation.navigate("Home Screen", { user: userData });
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+    // navigation.navigate("Home Screen");
   };
 
   return (
