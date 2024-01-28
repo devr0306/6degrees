@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-import addConnection from "../firebase/firebaseFunctions";
+import {addConnection} from "../firebase/firebaseFunctions";
+
 import { app } from "../firebase/config";
 
 
