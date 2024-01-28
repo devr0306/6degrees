@@ -8,12 +8,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 15,
     marginHorizontal: 20,
+    marginVertical: 5,
     borderRadius: 30,
     shadowOffset: {
       height: 5,
       width: 2,
     },
     shadowOpacity: 0.5,
+  },
+  title: {
+    color: colors.primary,
+    fontWeight: "bold",
+    fontSize: 22,
   },
   detailsContainer: {
     flex: 1,
@@ -51,11 +57,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textTransform: "uppercase",
     fontSize: 16,
-  },
-  title: {
-    color: colors.lightBlue,
-    fontWeight: "bold",
-    fontSize: 22,
   },
 });
 
